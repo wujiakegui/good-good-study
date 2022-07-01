@@ -1,24 +1,20 @@
-package com.xiao.shardingjdbc;
+package com.xiao.shardingjdbc02;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.xiao.shardingjdbc.mapper.CourseMapper;
-import com.xiao.shardingjdbc.model.Course;
+import com.xiao.shardingjdbc02.mapper.CourseMapper;
+import com.xiao.shardingjdbc02.model.Course;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-/**
- * @Description
- * @Author huangxiao
- * @Date 2022-06-30
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-class ShardingsphereJdbcDemoApplicationTests {
+class ShardingJdbc02ApplicationTests {
 
     @Autowired
     private CourseMapper courseMapper;
@@ -30,7 +26,7 @@ class ShardingsphereJdbcDemoApplicationTests {
     public void addCourse() {
         Course course = new Course();
         //cid由我们设置的策略，雪花算法进行生成
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             course.setCname("Java");
             course.setUserId(200L + i);
             course.setStatus("Normal");
