@@ -51,7 +51,7 @@ class ShardingJdbc02ApplicationTests {
     @Test
     public void findCourseList() {
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
-        wrapper.orderBy(true,true, "user_id");
+        wrapper.orderBy(true, true, "user_id");
         List<Course> course = courseMapper.selectList(wrapper);
         System.out.println(course);
     }
