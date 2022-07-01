@@ -1,4 +1,5 @@
-package com.xiao.shardingjdbc.model;
+package com.xiao.shardingjdbc02.model;
+
 
 import lombok.Data;
 
