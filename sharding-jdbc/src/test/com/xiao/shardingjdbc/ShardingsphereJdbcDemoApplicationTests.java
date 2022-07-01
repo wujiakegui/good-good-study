@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author huangxiao
@@ -21,7 +23,9 @@ class ShardingsphereJdbcDemoApplicationTests {
     @Autowired
     private CourseMapper courseMapper;
 
-    //添加课程
+    /**
+     * 添加课程
+     */
     @Test
     public void addCourse() {
         Course course = new Course();
@@ -34,11 +38,25 @@ class ShardingsphereJdbcDemoApplicationTests {
         }
     }
 
+    /**
+     * 查询详情
+     */
     @Test
-    public void findCourse() {
+    public void findCourseDetail() {
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
         wrapper.eq("cid", 749286337235910657L);
         Course course = courseMapper.selectOne(wrapper);
+        System.out.println(course);
+    }
+
+    /**
+     * 查询列表
+     */
+    @Test
+    public void findCourseList() {
+        QueryWrapper<Course> wrapper = new QueryWrapper<>();
+        wrapper.orderBy(true,true, "user_id");
+        List<Course> course = courseMapper.selectList(wrapper);
         System.out.println(course);
     }
 
