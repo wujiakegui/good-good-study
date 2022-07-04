@@ -96,9 +96,6 @@ sharding-jdbc02
 
 
 
-## 读写分离
-
-
 
 
 
